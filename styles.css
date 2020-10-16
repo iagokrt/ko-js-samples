@@ -1,0 +1,102 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-image: linear-gradient(-90deg, #1234, #4321);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: blueviolet;
+}
+
+main {
+  text-align: center;
+}
+
+footer p {
+  text-align: center;
+  margin: 0;
+}
+
+footer hr {
+  margin: 4px;
+}
+
+.title-current {
+  margin-top: 14px;
+}
+
+/*example 2*/
+
+.counter-ui-container button {
+  font-size: 2.2rem;
+}
+.counter-ui-container span.counter {
+  padding: 8px;
+  font-size: 3rem;
+}
+
+/*example 3*/
+
+article#knockout-app {
+  background-image: linear-gradient(-90deg, blue, aqua);
+  border-radius: 5px;
+}
+
+div.card-section h2 {
+  padding-top: 4px;
+  color: white;
+}
+
+.ui-container li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5em 0;
+  margin: 0;
+}
+
+.icon-melancia,
+.icon-laranja,
+.icon-abacaxi {
+  width: 80px;
+  height: 80px;
+  image-rendering: pixelated;
+  display: inline-block;
+  background-size: 256px;
+  vertical-align: middle;
+  position: relative;
+  top: -8px;
+  border-radius: 4px;
+}
+.icon-melancia {
+  background: url("assets/melancia.jpg") no-repeat no-repeat;
+}
+.icon-laranja {
+  /* background-position: -128px;// another option is to set only 1 image with different bg pos */
+  background: url("assets/laranja.jpg") no-repeat no-repeat;
+}
+.icon-abacaxi {
+  background: url("assets/abacaxi.jpg") no-repeat no-repeat;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+}
+
+.image {
+  margin: 0 auto;
+  width: 200px;
+}

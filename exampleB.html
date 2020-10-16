@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knockoutjs App</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--Pure CSS Framework Skeleton -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <!--Google fonts importing Space Mono-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">&larr;Voltar</a>
+      <img src="loading.gif" alt="gif" />
+    </header>
+    <main>
+      <h4>Dog walk | concepts</h4>
+
+      <aside class="current-example">
+        <article id="knockout-app" class="container">
+          <div class="card-section .u-full-width">
+            <h5>hello, <span data-bind="text: firstName"></span></h5>
+            <div class="counter-ui-container">
+              <button class="button" data-bind="click: decrease">-</button>
+              <span class="counter" data-bind="text: count"></span>
+              <button class="button-primary" data-bind="click: increase">
+                +
+              </button>
+              <p>Your dog is <span data-bind="text: dogHappiness"></span>!</p>
+            </div>
+          </div>
+        </article>
+      </aside>
+    </main>
+    <footer>
+      <hr />
+      <p>Copyright 2020, Iago B. Carneiro</p>
+    </footer>
+    <!--Pure Js Framework Knockoutjs-->
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"
+    ></script>
+    <script type="text/javascript">
+      function CounterViewModel() {
+        var self = this;
+
+        self.firstName = ko.observable("Wayne");
+        // const batman = self.firstName();
+        // console.log(batman); // "Wayne"
+        self.count = ko.observable(0);
+        // not self.dogHappiness = ko.observable();
+
+        self.increase = function () {
+          var currentValue = self.count();
+          self.count(currentValue + 1);
+        };
+        self.decrease = function () {
+          var currentValue = self.count();
+          if (currentValue > 0) {
+            self.count(currentValue - 1);
+          }
+        };
+
+        self.dogHappiness = ko.computed(function () {
+          if (self.count() === 0) {
+            return "DISAPPOINTED.";
+          }
+          if (self.count() === 1) {
+            return "Ow. That's nice";
+          }
+          if (self.count() === 2) {
+            return "Rawf. Great.";
+          }
+          if (self.count() === 3) {
+            return "Rawf. I'm happy!";
+          }
+          return "Rawf. Great.";
+        });
+      }
+
+      ko.applyBindings(
+        new CounterViewModel(),
+        document.querySelector("#knockout-app")
+      );
+    </script>
+  </body>
+</html>

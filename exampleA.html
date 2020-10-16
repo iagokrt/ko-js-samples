@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knockoutjs App</title>
+    <link rel="stylesheet" href="styles.css" />
+
+    <!--Pure CSS Framework Skeleton -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+    />
+    <!--Google fonts importing Space Mono-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">&larr;Voltar</a>
+      <img src="loading.gif" alt="gif" />
+    </header>
+    <main>
+      <h4>Example 01</h4>
+
+      <aside class="current-example">
+        <article id="example">
+          <label data-bind="text: userLabel"></label>
+          <input
+            type="text"
+            data-bind="value: userInputValue"
+            placeholder="type your username"
+          />
+          <!-- <label data-bind="text: passLabel">password</label>
+          <input
+            type="password"
+            data-bind="value: passInputRef"
+            placeholder="digite sua senha secreta"
+          /> -->
+          <button class="button" data-bind="click: buttonAction">Send</button>
+        </article>
+      </aside>
+    </main>
+    <footer>
+      <hr />
+      <p>Copyright 2020, Iago B. Carneiro</p>
+    </footer>
+
+    <script type="text/javascript">
+      console.log("Example one!");
+
+      function viewModel() {
+        var self = this;
+
+        // self.databind name
+        self.userLabel = "username";
+        self.userInputValue = "";
+        self.buttonAction = function () {
+          console.log({
+            message: `Olá ${this.userInputValue}, Seja muito bem-vindo! `,
+          });
+          this.userInputValue = "";
+        };
+      }
+
+      vm = new viewModel();
+      // knockout object. It says to knockout to apply binding within the context
+      ko.applyBindings(vm);
+    </script>
+  </body>
+</html>
